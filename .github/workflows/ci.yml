@@ -1,0 +1,54 @@
+# CI: builds and checks every pull request into main, before the merge.
+# It runs the same checks as "mvn verify" on your laptop: compile, the tests, PMD and SpotBugs.
+# If one of them fails, the PR shows a red X. This workflow publishes nothing.
+#
+# How GitHub Actions works, in short:
+#   - A "workflow" is one YAML file in .github/workflows/. GitHub reads every file there.
+#   - "on" says WHEN the workflow starts (an event: a push, a PR, a click by hand).
+#   - "jobs" says WHAT runs. Each job gets a fresh, empty virtual machine (a "runner").
+#   - A job has "steps". A step either runs a shell command ("run") or uses a ready-made
+#     action from GitHub's marketplace ("uses").
+
+# The name shown in the GitHub "Actions" tab and in the PR checks list.
+name: CI
+
+on:
+  # Runs when a PR into main is opened, gets new commits, or is reopened.
+  pull_request:
+    branches: [ main ]
+  # Adds a "Run workflow" button in the Actions tab, to start it by hand.
+  workflow_dispatch:
+
+# What the automatic GITHUB_TOKEN may do in this run. Every permission not listed is "none".
+# This job only reads the code, so read access is enough.
+permissions:
+  contents: read
+
+# Only one run per PR at a time. When you push a new commit to the PR,
+# GitHub cancels the old run that is still going, because its result no longer matters.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # "verify" is the job id. Its name shows in the PR checks list as "CI / verify".
+  verify:
+    # The machine type. GitHub gives a clean Ubuntu VM for each run and deletes it after.
+    runs-on: ubuntu-latest
+    steps:
+      # The VM starts empty. This step downloads the PR's code into it.
+      - uses: actions/checkout@v4
+
+      # Installs Java 21 (Temurin build). "cache: maven" saves ~/.m2 between runs,
+      # so Maven does not download every dependency again each time.
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      # The real check. -B (batch mode) gives plain logs with no colours or progress bars.
+      # "verify" runs: compile, the unit and ArchUnit tests, PMD and SpotBugs (see pom.xml).
+      # No settings file and no token: this library reads no private package.
+      - name: Build, test, PMD, SpotBugs
+        run: mvn -B verify

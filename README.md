@@ -32,6 +32,11 @@ The package is on GitHub Packages: `https://maven.pkg.github.com/kkpa-jbh/jbh-co
 In CI, add a repository with id `github-packages-read` for this URL. Give it a token
 with `read:packages` in your Maven settings. Locally, run `mvn install` here first.
 
+## CI
+
+The workflow `.github/workflows/ci.yml` runs `mvn -B verify` (tests, PMD, SpotBugs) on every
+pull request into `main`. It publishes nothing.
+
 ## Publish
 
 The workflow `.github/workflows/publish.yml` deploys the package on every push to `main`
