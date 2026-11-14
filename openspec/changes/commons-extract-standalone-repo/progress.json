@@ -5,10 +5,12 @@
   "module": "commons",
   "roadmap": null,
   "request": "JBH-74 section 1: move jbh-personal-finance/jbh-commons-lib into this new repo as a standalone Maven library com.jbh:jbh-commons-lib:1.0.0-SNAPSHOT (no parent POM), with distributionManagement to https://maven.pkg.github.com/kkpa-jbh/jbh-commons-lib, .github/maven-settings.xml and a publish workflow (mirror jbh-gateway-client; needs only GITHUB_TOKEN), plus README.md and CLAUDE.md with a System map sync rule. Ticket: JBH-74 (naming only; do NOT move it in Linear — jbh-leader owns the status). Stop after the proposal is committed (Step 3a briefing shown); do not dispatch Step 5 workers until jbh-leader sends \"go section 1\". Do not push.",
-  "status": "proposed",
+  "status": "applied",
   "rollup": {
     "current": [],
-    "pending": [
+    "pending": [],
+    "blocked": [],
+    "done": [
       "1.1",
       "2.1",
       "2.2",
@@ -20,12 +22,10 @@
       "4.2",
       "4.3",
       "5.1"
-    ],
-    "blocked": [],
-    "done": []
+    ]
   },
   "created_at": "2026-11-14T01:51:39Z",
-  "updated_at": "2026-11-14T01:51:39Z",
+  "updated_at": "2026-11-14T01:54:52Z",
   "leader": {
     "assistant": "Claude Code",
     "model": "claude-opus-5-5"
@@ -52,14 +52,23 @@
       "module": "commons",
       "depends_on": [],
       "parallel_ok": true,
-      "status": "pending",
-      "agent": null,
-      "model": null,
-      "started_at": null,
-      "completed_at": null,
-      "duration_seconds": null,
-      "notes": null,
-      "budget": null
+      "status": "done",
+      "agent": "commons",
+      "model": "claude-sonnet-5-5",
+      "started_at": "2026-11-14T01:53:00Z",
+      "completed_at": "2026-11-14T01:53:42Z",
+      "duration_seconds": 42,
+      "notes": "src/ copied (14 files); diff -r vs finance prints nothing.",
+      "budget": {
+        "five_hour_pct_start": 42,
+        "five_hour_pct_end": 46,
+        "five_hour_pct_delta": 4,
+        "cost_usd_delta": 0.54,
+        "context_pct_end": 17,
+        "source": "statusline-cache",
+        "approx": true,
+        "note": "one wave delta for 1.1-4.3, includes the leader's verify run"
+      }
     },
     {
       "id": "2.1",
@@ -67,14 +76,23 @@
       "module": "commons",
       "depends_on": [],
       "parallel_ok": true,
-      "status": "pending",
-      "agent": null,
-      "model": null,
-      "started_at": null,
-      "completed_at": null,
-      "duration_seconds": null,
-      "notes": null,
-      "budget": null
+      "status": "done",
+      "agent": "commons",
+      "model": "claude-sonnet-5-5",
+      "started_at": "2026-11-14T01:53:00Z",
+      "completed_at": "2026-11-14T01:53:42Z",
+      "duration_seconds": 42,
+      "notes": "Standalone pom.xml, no parent, D2 versions as properties, junit-bom import.",
+      "budget": {
+        "five_hour_pct_start": 42,
+        "five_hour_pct_end": 46,
+        "five_hour_pct_delta": 4,
+        "cost_usd_delta": 0.54,
+        "context_pct_end": 17,
+        "source": "statusline-cache",
+        "approx": true,
+        "note": "one wave delta for 1.1-4.3, includes the leader's verify run"
+      }
     },
     {
       "id": "2.2",
@@ -84,14 +102,23 @@
         "2.1"
       ],
       "parallel_ok": true,
-      "status": "pending",
-      "agent": null,
-      "model": null,
-      "started_at": null,
-      "completed_at": null,
-      "duration_seconds": null,
-      "notes": null,
-      "budget": null
+      "status": "done",
+      "agent": "commons",
+      "model": "claude-sonnet-5-5",
+      "started_at": "2026-11-14T01:53:00Z",
+      "completed_at": "2026-11-14T01:53:42Z",
+      "duration_seconds": 42,
+      "notes": "PMD and SpotBugs config + verify executions added.",
+      "budget": {
+        "five_hour_pct_start": 42,
+        "five_hour_pct_end": 46,
+        "five_hour_pct_delta": 4,
+        "cost_usd_delta": 0.54,
+        "context_pct_end": 17,
+        "source": "statusline-cache",
+        "approx": true,
+        "note": "one wave delta for 1.1-4.3, includes the leader's verify run"
+      }
     },
     {
       "id": "2.3",
@@ -99,14 +126,23 @@
       "module": "commons",
       "depends_on": [],
       "parallel_ok": true,
-      "status": "pending",
-      "agent": null,
-      "model": null,
-      "started_at": null,
-      "completed_at": null,
-      "duration_seconds": null,
-      "notes": null,
-      "budget": null
+      "status": "done",
+      "agent": "commons",
+      "model": "claude-sonnet-5-5",
+      "started_at": "2026-11-14T01:53:00Z",
+      "completed_at": "2026-11-14T01:53:42Z",
+      "duration_seconds": 42,
+      "notes": "3 quality files copied; diff vs finance prints nothing.",
+      "budget": {
+        "five_hour_pct_start": 42,
+        "five_hour_pct_end": 46,
+        "five_hour_pct_delta": 4,
+        "cost_usd_delta": 0.54,
+        "context_pct_end": 17,
+        "source": "statusline-cache",
+        "approx": true,
+        "note": "one wave delta for 1.1-4.3, includes the leader's verify run"
+      }
     },
     {
       "id": "2.4",
@@ -116,14 +152,23 @@
         "2.1"
       ],
       "parallel_ok": true,
-      "status": "pending",
-      "agent": null,
-      "model": null,
-      "started_at": null,
-      "completed_at": null,
-      "duration_seconds": null,
-      "notes": null,
-      "budget": null
+      "status": "done",
+      "agent": "commons",
+      "model": "claude-sonnet-5-5",
+      "started_at": "2026-11-14T01:53:00Z",
+      "completed_at": "2026-11-14T01:53:42Z",
+      "duration_seconds": 42,
+      "notes": "distributionManagement id github, kkpa-jbh/jbh-commons-lib URL.",
+      "budget": {
+        "five_hour_pct_start": 42,
+        "five_hour_pct_end": 46,
+        "five_hour_pct_delta": 4,
+        "cost_usd_delta": 0.54,
+        "context_pct_end": 17,
+        "source": "statusline-cache",
+        "approx": true,
+        "note": "one wave delta for 1.1-4.3, includes the leader's verify run"
+      }
     },
     {
       "id": "3.1",
@@ -131,14 +176,23 @@
       "module": "commons",
       "depends_on": [],
       "parallel_ok": true,
-      "status": "pending",
-      "agent": null,
-      "model": null,
-      "started_at": null,
-      "completed_at": null,
-      "duration_seconds": null,
-      "notes": null,
-      "budget": null
+      "status": "done",
+      "agent": "commons",
+      "model": "claude-sonnet-5-5",
+      "started_at": "2026-11-14T01:53:00Z",
+      "completed_at": "2026-11-14T01:53:42Z",
+      "duration_seconds": 42,
+      "notes": "maven-settings.xml with one server github (GITHUB_TOKEN).",
+      "budget": {
+        "five_hour_pct_start": 42,
+        "five_hour_pct_end": 46,
+        "five_hour_pct_delta": 4,
+        "cost_usd_delta": 0.54,
+        "context_pct_end": 17,
+        "source": "statusline-cache",
+        "approx": true,
+        "note": "one wave delta for 1.1-4.3, includes the leader's verify run"
+      }
     },
     {
       "id": "3.2",
@@ -146,14 +200,23 @@
       "module": "commons",
       "depends_on": [],
       "parallel_ok": true,
-      "status": "pending",
-      "agent": null,
-      "model": null,
-      "started_at": null,
-      "completed_at": null,
-      "duration_seconds": null,
-      "notes": null,
-      "budget": null
+      "status": "done",
+      "agent": "commons",
+      "model": "claude-sonnet-5-5",
+      "started_at": "2026-11-14T01:53:00Z",
+      "completed_at": "2026-11-14T01:53:42Z",
+      "duration_seconds": 42,
+      "notes": "publish.yml written; no -U, no -Pgithub, no PACKAGES_READ_TOKEN.",
+      "budget": {
+        "five_hour_pct_start": 42,
+        "five_hour_pct_end": 46,
+        "five_hour_pct_delta": 4,
+        "cost_usd_delta": 0.54,
+        "context_pct_end": 17,
+        "source": "statusline-cache",
+        "approx": true,
+        "note": "one wave delta for 1.1-4.3, includes the leader's verify run"
+      }
     },
     {
       "id": "4.1",
@@ -161,14 +224,23 @@
       "module": "commons",
       "depends_on": [],
       "parallel_ok": true,
-      "status": "pending",
-      "agent": null,
-      "model": null,
-      "started_at": null,
-      "completed_at": null,
-      "duration_seconds": null,
-      "notes": null,
-      "budget": null
+      "status": "done",
+      "agent": "commons",
+      "model": "claude-sonnet-5-5",
+      "started_at": "2026-11-14T01:53:00Z",
+      "completed_at": "2026-11-14T01:53:42Z",
+      "duration_seconds": 42,
+      "notes": ".gitignore written.",
+      "budget": {
+        "five_hour_pct_start": 42,
+        "five_hour_pct_end": 46,
+        "five_hour_pct_delta": 4,
+        "cost_usd_delta": 0.54,
+        "context_pct_end": 17,
+        "source": "statusline-cache",
+        "approx": true,
+        "note": "one wave delta for 1.1-4.3, includes the leader's verify run"
+      }
     },
     {
       "id": "4.2",
@@ -176,14 +248,23 @@
       "module": "commons",
       "depends_on": [],
       "parallel_ok": true,
-      "status": "pending",
-      "agent": null,
-      "model": null,
-      "started_at": null,
-      "completed_at": null,
-      "duration_seconds": null,
-      "notes": null,
-      "budget": null
+      "status": "done",
+      "agent": "commons",
+      "model": "claude-sonnet-5-5",
+      "started_at": "2026-11-14T01:53:00Z",
+      "completed_at": "2026-11-14T01:53:42Z",
+      "duration_seconds": 42,
+      "notes": "README.md written.",
+      "budget": {
+        "five_hour_pct_start": 42,
+        "five_hour_pct_end": 46,
+        "five_hour_pct_delta": 4,
+        "cost_usd_delta": 0.54,
+        "context_pct_end": 17,
+        "source": "statusline-cache",
+        "approx": true,
+        "note": "one wave delta for 1.1-4.3, includes the leader's verify run"
+      }
     },
     {
       "id": "4.3",
@@ -191,14 +272,23 @@
       "module": "commons",
       "depends_on": [],
       "parallel_ok": true,
-      "status": "pending",
-      "agent": null,
-      "model": null,
-      "started_at": null,
-      "completed_at": null,
-      "duration_seconds": null,
-      "notes": null,
-      "budget": null
+      "status": "done",
+      "agent": "commons",
+      "model": "claude-sonnet-5-5",
+      "started_at": "2026-11-14T01:53:00Z",
+      "completed_at": "2026-11-14T01:53:42Z",
+      "duration_seconds": 42,
+      "notes": "CLAUDE.md completed; pipeline block kept, SpotBugs note added.",
+      "budget": {
+        "five_hour_pct_start": 42,
+        "five_hour_pct_end": 46,
+        "five_hour_pct_delta": 4,
+        "cost_usd_delta": 0.54,
+        "context_pct_end": 17,
+        "source": "statusline-cache",
+        "approx": true,
+        "note": "one wave delta for 1.1-4.3, includes the leader's verify run"
+      }
     },
     {
       "id": "5.1",
@@ -217,13 +307,13 @@
         "4.3"
       ],
       "parallel_ok": false,
-      "status": "pending",
-      "agent": null,
-      "model": null,
-      "started_at": null,
-      "completed_at": null,
-      "duration_seconds": null,
-      "notes": null,
+      "status": "done",
+      "agent": "leader",
+      "model": "claude-opus-5-5",
+      "started_at": "2026-11-14T01:53:50Z",
+      "completed_at": "2026-11-14T01:54:52Z",
+      "duration_seconds": 62,
+      "notes": "mvn verify exit 0 (9 tests, 0 PMD, 0 SpotBugs bugs); pmd:check exit 0; install OK; dependency:tree clean; diff checks clean.",
       "budget": null
     }
   ],
@@ -296,6 +386,15 @@
       "decision": "Concurrency check (Step 3b): no risk in any task",
       "why": "Build and packaging change only: no shared state, no async code, one CI job.",
       "covered_by": null
+    },
+    {
+      "id": "D8",
+      "at": "2026-11-14T01:54:52Z",
+      "scope": "change",
+      "made_by": "leader",
+      "decision": "Used dispatch and return times for wave 1 task timestamps; ran 5.1 in the same reconcile",
+      "why": "Worker gave placeholder times; re-dispatch only to get times costs more than it gives. 5.1 is the leader's own run point.",
+      "covered_by": null
     }
   ],
   "events": [
@@ -318,6 +417,16 @@
       "at": "2026-11-14T01:51:39Z",
       "agent": "leader",
       "event": "holding before Step 5: waiting for 'go section 1' from jbh-leader"
+    },
+    {
+      "at": "2026-11-14T01:53:00Z",
+      "agent": "leader",
+      "event": "resume: 'go section 1' from jbh-leader. Dispatched wave 1 (tasks 1.1-4.3) to one serial worker on sonnet. budget start 5h=42% cost=2.4488369000000003"
+    },
+    {
+      "at": "2026-11-14T01:54:52Z",
+      "agent": "leader",
+      "event": "wave 1 returned: 10 tasks written. Verified by the leader (assistantRunsTests): mvn -B verify exit 0, Tests run 9 / 0 fail; mvn -q pmd:check exit 0; mvn install OK; dependency:tree only jackson at compile; diff checks clean. actionlint not installed."
     }
   ]
 }
