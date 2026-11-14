@@ -1,0 +1,323 @@
+{
+  "schema_version": 1,
+  "kind": "change",
+  "change": "commons-extract-standalone-repo",
+  "module": "commons",
+  "roadmap": null,
+  "request": "JBH-74 section 1: move jbh-personal-finance/jbh-commons-lib into this new repo as a standalone Maven library com.jbh:jbh-commons-lib:1.0.0-SNAPSHOT (no parent POM), with distributionManagement to https://maven.pkg.github.com/kkpa-jbh/jbh-commons-lib, .github/maven-settings.xml and a publish workflow (mirror jbh-gateway-client; needs only GITHUB_TOKEN), plus README.md and CLAUDE.md with a System map sync rule. Ticket: JBH-74 (naming only; do NOT move it in Linear — jbh-leader owns the status). Stop after the proposal is committed (Step 3a briefing shown); do not dispatch Step 5 workers until jbh-leader sends \"go section 1\". Do not push.",
+  "status": "proposed",
+  "rollup": {
+    "current": [],
+    "pending": [
+      "1.1",
+      "2.1",
+      "2.2",
+      "2.3",
+      "2.4",
+      "3.1",
+      "3.2",
+      "4.1",
+      "4.2",
+      "4.3",
+      "5.1"
+    ],
+    "blocked": [],
+    "done": []
+  },
+  "created_at": "2026-11-14T01:51:39Z",
+  "updated_at": "2026-11-14T01:51:39Z",
+  "leader": {
+    "assistant": "Claude Code",
+    "model": "claude-opus-5-5"
+  },
+  "git": {
+    "strategy": "auto",
+    "branch": "ft/CH1-JBH-74-commons-extract-standalone-repo",
+    "base": "faadca4f510f996533862a878ec27b6d4e7131d8",
+    "ticket": "JBH-74",
+    "ticket_url": null,
+    "ticket_tracker": "linear",
+    "created_at": "2026-11-14T01:51:39Z"
+  },
+  "test_first": {
+    "status": "skipped",
+    "commit": null,
+    "tests": [],
+    "approved_at": null
+  },
+  "tasks": [
+    {
+      "id": "1.1",
+      "title": "Copy jbh-personal-finance/jbh-commons-lib/src/ to src/ unchanged",
+      "module": "commons",
+      "depends_on": [],
+      "parallel_ok": true,
+      "status": "pending",
+      "agent": null,
+      "model": null,
+      "started_at": null,
+      "completed_at": null,
+      "duration_seconds": null,
+      "notes": null,
+      "budget": null
+    },
+    {
+      "id": "2.1",
+      "title": "Write the standalone pom.xml (no parent, pinned versions, junit-bom)",
+      "module": "commons",
+      "depends_on": [],
+      "parallel_ok": true,
+      "status": "pending",
+      "agent": null,
+      "model": null,
+      "started_at": null,
+      "completed_at": null,
+      "duration_seconds": null,
+      "notes": null,
+      "budget": null
+    },
+    {
+      "id": "2.2",
+      "title": "Add PMD and SpotBugs plugin config and executions to pom.xml",
+      "module": "commons",
+      "depends_on": [
+        "2.1"
+      ],
+      "parallel_ok": true,
+      "status": "pending",
+      "agent": null,
+      "model": null,
+      "started_at": null,
+      "completed_at": null,
+      "duration_seconds": null,
+      "notes": null,
+      "budget": null
+    },
+    {
+      "id": "2.3",
+      "title": "Copy pmd-ruleset.xml, spotbugs-exclude.xml, spotbugs-include.xml unchanged",
+      "module": "commons",
+      "depends_on": [],
+      "parallel_ok": true,
+      "status": "pending",
+      "agent": null,
+      "model": null,
+      "started_at": null,
+      "completed_at": null,
+      "duration_seconds": null,
+      "notes": null,
+      "budget": null
+    },
+    {
+      "id": "2.4",
+      "title": "Add distributionManagement to pom.xml",
+      "module": "commons",
+      "depends_on": [
+        "2.1"
+      ],
+      "parallel_ok": true,
+      "status": "pending",
+      "agent": null,
+      "model": null,
+      "started_at": null,
+      "completed_at": null,
+      "duration_seconds": null,
+      "notes": null,
+      "budget": null
+    },
+    {
+      "id": "3.1",
+      "title": "Create .github/maven-settings.xml with one server github",
+      "module": "commons",
+      "depends_on": [],
+      "parallel_ok": true,
+      "status": "pending",
+      "agent": null,
+      "model": null,
+      "started_at": null,
+      "completed_at": null,
+      "duration_seconds": null,
+      "notes": null,
+      "budget": null
+    },
+    {
+      "id": "3.2",
+      "title": "Create .github/workflows/publish.yml",
+      "module": "commons",
+      "depends_on": [],
+      "parallel_ok": true,
+      "status": "pending",
+      "agent": null,
+      "model": null,
+      "started_at": null,
+      "completed_at": null,
+      "duration_seconds": null,
+      "notes": null,
+      "budget": null
+    },
+    {
+      "id": "4.1",
+      "title": "Create .gitignore",
+      "module": "commons",
+      "depends_on": [],
+      "parallel_ok": true,
+      "status": "pending",
+      "agent": null,
+      "model": null,
+      "started_at": null,
+      "completed_at": null,
+      "duration_seconds": null,
+      "notes": null,
+      "budget": null
+    },
+    {
+      "id": "4.2",
+      "title": "Create README.md",
+      "module": "commons",
+      "depends_on": [],
+      "parallel_ok": true,
+      "status": "pending",
+      "agent": null,
+      "model": null,
+      "started_at": null,
+      "completed_at": null,
+      "duration_seconds": null,
+      "notes": null,
+      "budget": null
+    },
+    {
+      "id": "4.3",
+      "title": "Complete CLAUDE.md (keep pipeline block; overview, rules, System map sync)",
+      "module": "commons",
+      "depends_on": [],
+      "parallel_ok": true,
+      "status": "pending",
+      "agent": null,
+      "model": null,
+      "started_at": null,
+      "completed_at": null,
+      "duration_seconds": null,
+      "notes": null,
+      "budget": null
+    },
+    {
+      "id": "5.1",
+      "title": "Leader runs mvn test, pmd:check, verify, install and the file checks",
+      "module": "commons",
+      "depends_on": [
+        "1.1",
+        "2.1",
+        "2.2",
+        "2.3",
+        "2.4",
+        "3.1",
+        "3.2",
+        "4.1",
+        "4.2",
+        "4.3"
+      ],
+      "parallel_ok": false,
+      "status": "pending",
+      "agent": null,
+      "model": null,
+      "started_at": null,
+      "completed_at": null,
+      "duration_seconds": null,
+      "notes": null,
+      "budget": null
+    }
+  ],
+  "review": {
+    "status": "pending",
+    "agent": null,
+    "brief": null,
+    "rounds": []
+  },
+  "decisions": [
+    {
+      "id": "D1",
+      "at": "2026-11-14T01:51:39Z",
+      "scope": "change",
+      "made_by": "user",
+      "decision": "Pipeline config: Modules-Root '.', one module 'commons' = whole repo",
+      "why": "Most files are root files (pom, .github, docs); a src-only module would push them to the leader.",
+      "covered_by": null
+    },
+    {
+      "id": "D2",
+      "at": "2026-11-14T01:51:39Z",
+      "scope": "change",
+      "made_by": "user",
+      "decision": "Copy PMD and SpotBugs from finance; Complexity-Check 'mvn -q pmd:check'",
+      "why": "Keeps the quality gates the lib had as a finance module.",
+      "covered_by": null
+    },
+    {
+      "id": "D3",
+      "at": "2026-11-14T01:51:39Z",
+      "scope": "change",
+      "made_by": "user",
+      "decision": "Init commit on main (openspec/config.yaml), branch ft/CH1 from it",
+      "why": "Empty repo had no base; PR later targets main.",
+      "covered_by": null
+    },
+    {
+      "id": "D4",
+      "at": "2026-11-14T01:51:39Z",
+      "scope": "change",
+      "made_by": "leader",
+      "decision": "Skipped comprehension, performance and SRP interviews; skipped SOLID check",
+      "why": "No agenda item, no database, no new classes, no logic change: code is copied as-is.",
+      "covered_by": null
+    },
+    {
+      "id": "D5",
+      "at": "2026-11-14T01:51:39Z",
+      "scope": "change",
+      "made_by": "leader",
+      "decision": "test_first skipped",
+      "why": "System plan excludes new unit tests; the 2 existing tests move unchanged.",
+      "covered_by": null
+    },
+    {
+      "id": "D6",
+      "at": "2026-11-14T01:51:39Z",
+      "scope": "change",
+      "made_by": "user",
+      "decision": "Accepted size over cap (~1020 lines, 24 files vs 500/15)",
+      "why": "About half are byte-for-byte copies checked with diff; cutting would delay publishing.",
+      "covered_by": null
+    },
+    {
+      "id": "D7",
+      "at": "2026-11-14T01:51:39Z",
+      "scope": "change",
+      "made_by": "leader",
+      "decision": "Concurrency check (Step 3b): no risk in any task",
+      "why": "Build and packaging change only: no shared state, no async code, one CI job.",
+      "covered_by": null
+    }
+  ],
+  "events": [
+    {
+      "at": "2026-11-14T01:51:39Z",
+      "agent": "leader",
+      "event": "init commit faadca4 on main; branch created; artifacts committed 3060a07"
+    },
+    {
+      "at": "2026-11-14T01:51:39Z",
+      "agent": "leader",
+      "event": "Pipeline config block written to CLAUDE.md (no block existed)"
+    },
+    {
+      "at": "2026-11-14T01:51:39Z",
+      "agent": "leader",
+      "event": "worker note: a Bash guard hook blocks commands whose text contains the Maven deploy goal; use Write for publish.yml"
+    },
+    {
+      "at": "2026-11-14T01:51:39Z",
+      "agent": "leader",
+      "event": "holding before Step 5: waiting for 'go section 1' from jbh-leader"
+    }
+  ]
+}
