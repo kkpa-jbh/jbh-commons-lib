@@ -1,28 +1,48 @@
-# Publishes jbh-commons-lib to GitHub Packages.
+# Publish: uploads the library jar to GitHub Packages after each merge into main.
+# Other repos (jbh-notification, jbh-personal-finance) then download
+# com.jbh:jbh-commons-lib:1.0.0-SNAPSHOT from there in their own CI.
+# The tests are not run here: the CI workflow (ci.yml) already ran them on the PR.
+
+# The name shown in the GitHub "Actions" tab.
 name: Publish
 
 on:
+  # Adds a "Run workflow" button in the Actions tab, to publish by hand.
   workflow_dispatch:
+  # Runs on every push to main. A merged PR is a push to main, so this runs after each merge.
   push:
     branches: [ main ]
 
+# What the automatic GITHUB_TOKEN may do in this run. Every permission not listed is "none".
+# - contents: read   -> download the code.
+# - packages: write  -> upload the jar to this repo's GitHub Packages.
 permissions:
   contents: read
   packages: write
 
 jobs:
+  # "publish" is the job id. Each job gets a fresh, empty Ubuntu VM that is deleted after.
   publish:
     runs-on: ubuntu-latest
     steps:
+      # The VM starts empty. This step downloads the code of the main branch into it.
       - uses: actions/checkout@v4
 
+      # Installs Java 21 (Temurin build). "cache: maven" saves ~/.m2 between runs,
+      # so Maven does not download every dependency again each time.
       - uses: actions/setup-java@v4
         with:
           java-version: '21'
           distribution: 'temurin'
           cache: maven
 
+      # Builds the jar and uploads it to the URL in pom.xml <distributionManagement>.
+      # -B: batch mode, plain logs.
+      # -s .github/maven-settings.xml: the Maven settings file with the login for server id "github".
+      # -DskipTests: the tests already ran in ci.yml on the PR.
       - name: Deploy library
         run: mvn -B -s .github/maven-settings.xml -DskipTests deploy
         env:
+          # GitHub creates this token for each run; it is not a secret you add by hand.
+          # maven-settings.xml reads it as the password for GitHub Packages.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
